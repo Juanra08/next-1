@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import dynamic from 'next/dynamic'
+
+const ComponentUE = dynamic(() => import('../../components/dinamic/useEffectComp'), {
+    ssr: false,
+});
+
 export default function useEffectPage() {
 
     const [resourceType, setResourceType] = useState('?category=libros_programacion&criteria=most_viewed');
@@ -18,6 +24,8 @@ export default function useEffectPage() {
 
     return (
         <>
+            <ComponentUE/>
+
             <div className="flex flex-row items-center justify-center w-full flex-1 px-20 text-center pt-20">
                 <button
                     className="btn text-2xl"
@@ -32,7 +40,7 @@ export default function useEffectPage() {
             </div>
             <ul className="my-10">
                 {items.map((item, index) => {
-                    return <li key={index} className="my-10 bg-gray-400">Titulo : {item.title}, Autor: {item.author}</li>
+                    return <li key={index} className="my-10 bg-gray-100">Titulo : {item.title}, Autor: {item.author}</li>
                 })}
             </ul>
         </>
