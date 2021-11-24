@@ -43,6 +43,14 @@ export default function useEffectPage() {
                     return <li key={index} className="my-10 bg-gray-100">Titulo : {item.title}, Autor: {item.author}</li>
                 })}
             </ul>
+
+            <form >
+                <label>
+                    Essay:
+                    <textarea value="" />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
         </>
 
     )
