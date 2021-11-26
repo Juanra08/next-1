@@ -40,7 +40,16 @@ export default function useEffectPage() {
             </div>
             <ul className="my-10">
                 {items.map((item, index) => {
-                    return <li key={index} className="my-10 bg-gray-100">Titulo : {item.title}, Autor: {item.author}</li>
+                    return (
+                        <>
+                        <div id="libros">
+                            <h1>{item.title}</h1> 
+                            <h3>{item.author}</h3>
+                            <img src={item.cover}></img>
+                            <p>{item.content}</p>   
+                        </div>                 
+                        </>
+)
                 })}
             </ul>
 
