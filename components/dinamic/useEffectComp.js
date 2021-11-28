@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-export default function useEffectAdvancedPage() {
-    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+export default function useMousePosition () {
+    const [mousePosition, setMousePosition] = useState(window.innerHeight);
 
-    const handleResize = () => {
-        setWindowHeight(window.innerHeight);
+    const updateMousePosition  = (ev) => {
+        setMousePosition(ev.clientX);
     }
 
     useEffect(() => {
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => { window.removeEventListener('resize', handleResize); }
+        window.addEventListener('mousemove', updateMousePosition);
+        return () => { window.removeEventListener('mousemove', updateMousePosition); }
     }, [])
 
     return (
         <div className="text-4xl text-red-600">
-            {windowHeight}
+            {mousePosition}
         </div>
     )
 }
