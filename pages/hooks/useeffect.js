@@ -53,13 +53,6 @@ export default function useEffectPage() {
                 })}
             </ul>
 
-            <form >
-                <label>
-                    Essay:
-                    <textarea value="" />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
         </>
 
     )
